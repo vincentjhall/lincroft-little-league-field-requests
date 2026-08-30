@@ -88,7 +88,72 @@
   function occupied(day,start,field,ignoreId){return centralSchedule.some(x=>x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId)||state.requests.some(x=>x.status==='Approved'&&x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId);}
   function currentEvents(day,start,field){return [...centralSchedule,...state.requests.filter(r=>r.status==='Approved'||r.status==='Pending')].filter(x=>x.day===day&&x.start===start&&x.field===field);}
   function renderDashboard(){const approved=centralSchedule.filter(x=>x.status==='Approved').length+state.requests.filter(x=>x.status==='Approved').length;document.getElementById('pendingMetric').textContent=state.requests.filter(x=>x.status==='Pending').length;document.getElementById('approvedMetric').textContent=approved;const sample=centralSchedule.filter(x=>x.status==='Approved').slice(0,12);document.getElementById('upcoming').innerHTML=sample.length?`<table><thead><tr><th>Day</th><th>Time</th><th>Field</th><th>Team / event</th></tr></thead><tbody>${sample.map(x=>`<tr><td>${x.day}</td><td>${x.start}</td><td>${x.field}</td><td>${esc(x.team)} — ${esc(x.type)}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">Loading schedule data…</p>';}
-  function renderGrid(){let html='<div class="week"><div class="cell head">Day / time</div>'+FIELDS.map(f=>`<div class="cell head">${f}</div>`).join('');DAYS.forEach(day=>TIMES[day].forEach((time,index)=>{html+=`<div class="cell ${index===0?'day':'time'}">${index===0?day+'<br>':''}${time}</div>`;FIELDS.forEach(field=>{const events=currentEvents(day,time,field);const blocked=events.some(x=>x.status==='Blocked'||x.type==='Blocked');html+=`<div class="cell ${blocked?'slot':events.length?'slot':'slot open'}">${events.map(x=>{const cl=x.status==='Pending'?'pending-event':(x.status==='Blocked'||x.type==='Blocked')?'block':x.type.includes('Game')?'game':'';return `<div class="event ${cl}"><strong>${esc(x.team)}</strong>${x.notes?`<br><span>${esc(x.notes)}</span>`:''}</div>`;}).join('')}</div>`;});}));html+='</div>';document.getElementById('weekGrid').innerHTML=html;}
+  function function renderGrid() {
+  let html = '<div class="week">';
+  html += '<div class="cell head">Day / time</div>';
+
+  FIELDS.forEach((field) => {
+    html += `<div class="cell head">${field}</div>`;
+  });
+
+  DAYS.forEach((day) => {
+    TIMES[day].forEach((time, index) => {
+      html += `<div class="cell ${index === 0 ? 'day' : 'time'}">`;
+
+      if (index === 0) {
+        html += `${day}<br>`;
+      }
+
+      html += `${time}</div>`;
+
+      FIELDS.forEach((field) => {
+        const events = currentEvents(day, time, field);
+
+        const isBlocked = events.some((event) => {
+          return event.status === 'Blocked' || event.type === 'Blocked';
+        });
+
+        let cellClass = 'slot';
+
+        if (!isBlocked && events.length === 0) {
+          cellClass += ' open';
+        }
+
+        html += `<div class="cell ${cellClass}">`;
+
+        events.forEach((event) => {
+          let eventClass = '';
+
+          if (event.status === 'Pending') {
+            eventClass = 'pending-event';
+          } else if (
+            event.status === 'Blocked' ||
+            event.type === 'Blocked'
+          ) {
+            eventClass = 'block';
+          } else if (event.type.includes('Game')) {
+            eventClass = 'game';
+          }
+
+          html += `<div class="event ${eventClass}">`;
+          html += `<strong>${esc(event.team)}</strong>`;
+
+          if (event.notes) {
+            html += `<br><span>${esc(event.notes)}</span>`;
+          }
+
+          html += '</div>';
+        });
+
+        html += '</div>';
+      });
+    });
+  });
+
+  html += '</div>';
+
+  document.getElementById('weekGrid').innerHTML = html;
+}
   function renderQueue(){const requests=[...state.requests].sort((a,b)=>({Pending:0,Approved:1,Denied:2}[a.status]-({Pending:0,Approved:1,Denied:2}[b.status]));document.getElementById('requestQueue').innerHTML=requests.length?requests.map(r=>`<div class="request-card"><div style="display:flex;justify-content:space-between;gap:10px"><div><h3>${esc(r.team)} — ${esc(r.type)}</h3><div><strong>${r.day} ${r.start}</strong> · ${r.field}${r.date?' · '+esc(r.date):''}</div><div class="muted">Lights: ${esc(r.lights||'No')}${r.opponent?' · Opponent: '+esc(r.opponent):''}${r.notes?' · '+esc(r.notes):''}</div>${r.decisionNote?`<div class="muted">Scheduler note: ${esc(r.decisionNote)}</div>`:''}</div><span class="badge ${r.status.toLowerCase()}">${r.status}</span></div>${r.status==='Pending'?`<div class="actions" style="margin-top:10px"><button class="approve" onclick="openDecision('${r.id}','Approved')">Approve</button><button class="danger" onclick="openDecision('${r.id}','Denied')">Deny</button><button class="secondary" onclick="alternates('${r.id}')">Find alternate</button></div>`:''}</div>`).join(''):'<p class="muted">No pending requests.</p>';}
   function renderAll(){renderDashboard();renderGrid();renderQueue();}
   function populateInputs(){document.getElementById('field').innerHTML=FIELDS.map(x=>`<option>${x}</option>`).join('');const updateTimes=()=>{const day=document.getElementById('day').value;document.getElementById('start').innerHTML=TIMES[day].map(x=>`<option>${x}</option>`).join('');};document.getElementById('day').addEventListener('change',updateTimes);updateTimes();}
