@@ -3,20 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lincroft Little League | Field Requests</title>
+  <title>Lincroft Little League Field Requests</title>
   <style>
-    :root{--navy:#0b2447;--blue:#1d4ed8;--green:#15803d;--amber:#b45309;--red:#b91c1c;--gray:#61708a;--bg:#f4f7fb;--line:#dbe3ee;--card:#fff}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:#172033;font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    header{background:linear-gradient(120deg,var(--navy),#123d75);color:#fff;padding:22px max(18px,calc((100vw - 1360px)/2))} h1{margin:0;font-size:clamp(22px,3vw,32px)} header p{margin:4px 0 0;color:#d7e6ff}
-    nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px} button{border:0;border-radius:8px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}.tab{background:#ffffff1a;color:#fff}.tab.active{background:#fff;color:var(--navy)}
-    main{max-width:1360px;margin:24px auto;padding:0 18px 42px}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.two{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:18px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 1px 2px #1020400a}.metric{font-size:31px;font-weight:800;margin-top:3px}.muted{color:var(--gray);font-size:13px}h2{font-size:22px;margin:0 0 8px}h3{font-size:16px;margin:0 0 5px}
-    .primary{background:var(--blue);color:#fff}.secondary{background:#e8eef8;color:var(--navy)}.approve{background:#dff8e7;color:var(--green)}.danger{background:#ffe3e3;color:var(--red)}.actions{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:800}.pending{background:#fff3d6;color:var(--amber)}.approved{background:#ddf7e6;color:var(--green)}.denied{background:#ffe2e2;color:var(--red)}
-    label{display:block;font-weight:750;margin:0 0 5px}input,select,textarea{width:100%;border:1px solid #bbc8da;border-radius:8px;padding:10px;background:#fff;font:inherit}textarea{min-height:82px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.full{grid-column:1/-1}.notice{display:none;margin:14px 0;padding:11px 13px;border-radius:8px;background:#e7f0ff;color:#17458c}.notice.show{display:block}
-    .week-wrap{overflow-x:auto}.week{min-width:1080px;display:grid;grid-template-columns:84px repeat(8,minmax(122px,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden}.cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:54px;padding:6px;font-size:12px}.head{background:#edf3fb;font-weight:800;text-align:center;min-height:auto}.day{background:#f8fafc;font-weight:800;display:flex;align-items:center}.time{background:#fbfcfe;font-weight:750;color:#3d4a5f}.slot{background:#fff}.slot.open{background:#fffdd2}.event{border-left:4px solid var(--blue);padding:4px 5px;margin-bottom:4px;border-radius:4px;background:#e7efff}.event.game{border-left-color:var(--green);background:#def7e6}.event.block{border-left-color:#475569;background:#edf0f4}.event.pending-event{border-left-color:var(--amber);background:#fff3d6}.legend{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0 0}.legend span{font-size:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
-    .request-card{padding:14px 0;border-bottom:1px solid var(--line)}.request-card:last-child{border-bottom:0}table{width:100%;border-collapse:collapse}th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.04em}
-    dialog{width:min(540px,calc(100% - 28px));border:0;border-radius:14px;padding:0;box-shadow:0 18px 70px #0008}dialog::backdrop{background:#07162dcc}.modal{padding:20px}.modal h2{margin:0 0 8px}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}@media(max-width:530px){.grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}main{padding:0 12px 30px}}
+    :root { --navy:#102b5b; --blue:#2563eb; --green:#15803d; --orange:#b45309; --red:#b91c1c; --gray:#64748b; --page:#f5f7fb; --line:#dbe3ee; --card:#ffffff; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--page); color:#172033; font:15px/1.45 Arial,Helvetica,sans-serif; }
+    header { background:linear-gradient(115deg,#102b5b,#1c4384); color:#fff; padding:28px max(20px,calc((100vw - 1320px)/2)); }
+    h1 { margin:0; font-size:30px; } header p { margin:6px 0 0; color:#dce9ff; }
+    nav { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+    button { border:0; border-radius:8px; padding:10px 14px; font-weight:700; font-size:14px; cursor:pointer; }
+    .tab { background:#ffffff20; color:#fff; }.tab.active { background:#fff; color:var(--navy); }
+    main { max-width:1320px; margin:24px auto; padding:0 18px 40px; }.view { display:none; }.view.active { display:block; }
+    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }.two { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; margin-top:18px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; box-shadow:0 1px 2px #1020400a; }.metric { font-size:31px; font-weight:800; margin:5px 0; }.muted { color:var(--gray); font-size:13px; }
+    h2 { margin:0 0 10px; font-size:22px; } h3 { margin:0 0 6px; font-size:16px; }.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
+    .primary { background:var(--blue); color:#fff; }.secondary { background:#e8eef8; color:#102b5b; }.approve { background:#dff8e7; color:var(--green); }.deny { background:#ffe2e2; color:var(--red); }
+    label { display:block; font-weight:700; margin-bottom:5px; } input,select,textarea { width:100%; padding:10px; border:1px solid #bdcadb; border-radius:8px; font:inherit; background:#fff; } textarea { min-height:86px; resize:vertical; }
+    .form-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }.full { grid-column:1/-1; }.notice { margin:14px 0; padding:11px 13px; border-radius:8px; background:#e6f0ff; color:#17458c; display:none; }.notice.visible { display:block; }
+    .week-wrap { overflow-x:auto; }.week { min-width:1080px; display:grid; grid-template-columns:86px repeat(8,1fr); border:1px solid var(--line); border-radius:10px; overflow:hidden; }.cell { min-height:56px; padding:6px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); font-size:12px; }.head { min-height:auto; background:#edf3fb; font-weight:800; text-align:center; }.daycell { background:#f8fafc; font-weight:800; }.timecell { background:#fbfcfe; font-weight:700; color:#3b4a61; }.open { background:#fffbc6; }.blocked { background:#eef1f5; }
+    .event { margin-bottom:4px; padding:4px 5px; border-radius:4px; border-left:4px solid var(--blue); background:#e5efff; }.event.game { border-left-color:var(--green); background:#e0f8e8; }.event.block { border-left-color:#475569; background:#e9edf2; }.event.pending { border-left-color:var(--orange); background:#fff1d6; }
+    .legend { display:flex; flex-wrap:wrap; gap:14px; margin-top:13px; font-size:12px; }.swatch { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; }
+    .badge { display:inline-block; padding:3px 9px; border-radius:999px; font-size:12px; font-weight:800; }.badge.pending { color:var(--orange); background:#fff1d6; }.badge.approved { color:var(--green); background:#ddf7e6; }.badge.denied { color:var(--red); background:#ffe2e2; }
+    .request { padding:14px 0; border-bottom:1px solid var(--line); }.request:last-child { border-bottom:0; }.request-top { display:flex; justify-content:space-between; gap:12px; }
+    table { width:100%; border-collapse:collapse; } th,td { padding:9px 7px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; } th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--gray); }
+    dialog { width:min(520px,calc(100% - 28px)); border:0; border-radius:12px; padding:0; box-shadow:0 18px 70px #0008; } dialog::backdrop { background:#07162dcc; }.modal { padding:20px; }
+    @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}} @media(max-width:520px){.cards,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}main{padding:0 12px 30px}h1{font-size:24px}}
   </style>
 </head>
 <body>
@@ -27,147 +38,294 @@
     <button class="tab active" data-view="dashboard">Dashboard</button>
     <button class="tab" data-view="request">Request a Field</button>
     <button class="tab" data-view="calendar">Weekly Grid</button>
-    <button class="tab" data-view="admin">Scheduler Queue</button>
+    <button class="tab" data-view="queue">Scheduler Queue</button>
   </nav>
 </header>
 <main>
   <section id="dashboard" class="view active">
-    <div class="grid">
-      <div class="card"><div class="muted">Pending approval</div><div id="pendingMetric" class="metric">0</div><div class="muted">Manager requests awaiting review</div></div>
-      <div class="card"><div class="muted">Approved reservations</div><div id="approvedMetric" class="metric">0</div><div class="muted">Central schedule plus approved requests</div></div>
+    <div class="cards">
+      <div class="card"><div class="muted">Pending approval</div><div class="metric" id="pendingCount">0</div><div class="muted">Manager requests awaiting review</div></div>
+      <div class="card"><div class="muted">Approved reservations</div><div class="metric" id="approvedCount">0</div><div class="muted">Central schedule plus approvals</div></div>
       <div class="card"><div class="muted">Fields available</div><div class="metric">8</div><div class="muted">F1 through F8</div></div>
-      <div class="card"><div class="muted">Schedule source</div><div class="metric" style="font-size:19px;margin-top:10px">Central CSV</div><div id="sourceText" class="muted">Loading schedule…</div></div>
+      <div class="card"><div class="muted">Schedule source</div><div class="metric" style="font-size:19px">Central CSV</div><div class="muted" id="scheduleStatus">Loading schedule…</div></div>
     </div>
     <div class="two">
-      <div class="card"><h2>Approved field allocations</h2><div id="upcoming"></div></div>
-      <div class="card"><h2>Operating rule</h2><p style="margin:0">A submitted request is <strong>not a reservation</strong> until the field scheduler approves it.</p><p class="muted">The weekly grid reads from the repository’s Fall 2026 F1–F8 schedule template. This browser saves requests locally for demonstration purposes.</p></div>
+      <div class="card"><h2>Approved field allocations</h2><div id="allocationList"></div></div>
+      <div class="card"><h2>Operating rule</h2><p>A submitted request is <strong>not a reservation</strong> until the field scheduler approves it.</p><p class="muted">The central schedule loads from the Fall 2026 F1–F8 CSV file. This prototype stores request activity in the current browser only.</p></div>
     </div>
   </section>
 
   <section id="request" class="view">
-    <div class="card" style="max-width:850px"><h2>Request a field</h2><p class="muted">Requests remain pending until scheduler approval. The selected slot is checked against the central schedule.</p><div id="conflictNotice" class="notice"></div>
+    <div class="card" style="max-width:850px"><h2>Request a field</h2><p class="muted">The app checks the requested field slot against the central approved schedule. Submission sends the request to the scheduler queue.</p><div id="availability" class="notice"></div>
       <form id="requestForm"><div class="form-grid">
         <div><label for="team">Team / requestor</label><input id="team" required placeholder="Example: 10U Lightning Blue"></div>
-        <div><label for="type">Event type</label><select id="type"><option>Practice</option><option>Game</option><option>Makeup Game</option><option>Scrimmage</option><option>Clinic</option></select></div>
-        <div><label for="day">Day of week</label><select id="day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></div>
+        <div><label for="eventType">Event type</label><select id="eventType"><option>Practice</option><option>Game</option><option>Makeup Game</option><option>Scrimmage</option><option>Clinic</option></select></div>
+        <div><label for="day">Day of week</label><select id="day"></select></div>
         <div><label for="field">Preferred field</label><select id="field"></select></div>
         <div><label for="start">Start time</label><select id="start"></select></div>
         <div><label for="date">Specific date (optional)</label><input id="date" type="date"></div>
         <div><label for="opponent">Opponent, if game</label><input id="opponent" placeholder="Optional"></div>
         <div><label for="lights">Lights needed?</label><select id="lights"><option>No</option><option>Yes</option></select></div>
         <div class="full"><label for="notes">Notes / special needs</label><textarea id="notes" placeholder="Rainout makeup, equipment need, alternate availability, etc."></textarea></div>
-      </div><div class="actions" style="margin-top:16px"><button class="primary" type="submit">Submit for approval</button><button class="secondary" type="button" id="checkAvailability">Check slot</button></div></form>
+      </div><div class="actions"><button class="primary" type="submit">Submit for approval</button><button class="secondary" type="button" id="checkButton">Check slot</button></div></form>
     </div>
   </section>
 
-  <section id="calendar" class="view"><div class="card"><div class="actions" style="justify-content:space-between"><div><h2>Weekly field allocation grid</h2><p class="muted" style="margin:0">F1–F8 recurring allocation template. Yellow is open/requestable. Gray is blocked or restricted.</p></div><button class="secondary" id="refreshSchedule">Refresh central schedule</button></div><div id="weekGrid" class="week-wrap" style="margin-top:15px"></div><div class="legend"><span><i class="dot" style="background:#f7f35b"></i>Open/requestable</span><span><i class="dot" style="background:#1d4ed8"></i>Approved practice</span><span><i class="dot" style="background:#15803d"></i>Game</span><span><i class="dot" style="background:#475569"></i>Blocked/restricted</span><span><i class="dot" style="background:#b45309"></i>Pending request</span></div></div></section>
+  <section id="calendar" class="view">
+    <div class="card"><div class="actions" style="justify-content:space-between;margin-top:0"><div><h2>Weekly field allocation grid</h2><p class="muted" style="margin:0">Yellow means open/requestable. Gray means blocked, restricted, or held.</p></div><button class="secondary" id="refreshButton">Refresh central schedule</button></div><div id="grid" class="week-wrap" style="margin-top:16px"></div><div class="legend"><span><i class="swatch" style="background:#fffbc6"></i>Open/requestable</span><span><i class="swatch" style="background:#2563eb"></i>Approved practice</span><span><i class="swatch" style="background:#15803d"></i>Game</span><span><i class="swatch" style="background:#475569"></i>Blocked/restricted</span><span><i class="swatch" style="background:#b45309"></i>Pending request</span></div></div>
+  </section>
 
-  <section id="admin" class="view"><div class="card"><h2>Scheduler approval queue</h2><p class="muted">This is a demonstration queue. In production, only the designated field scheduler and backup scheduler will have approval access.</p><div id="requestQueue"></div></div></section>
+  <section id="queue" class="view"><div class="card"><h2>Scheduler approval queue</h2><p class="muted">This prototype has no login yet. In production, only the designated scheduler and backup scheduler will be able to approve or deny requests.</p><div id="queueList"></div></div></section>
 </main>
-<dialog id="decisionDialog"><div class="modal"><h2 id="dialogTitle">Decision</h2><p id="dialogText"></p><label for="decisionNote">Decision note</label><textarea id="decisionNote" placeholder="Optional explanation for manager"></textarea><div class="actions" style="margin-top:15px"><button class="primary" id="confirmDecision">Confirm</button><button class="secondary" onclick="document.getElementById('decisionDialog').close()">Cancel</button></div></div></dialog>
+<dialog id="decisionDialog"><div class="modal"><h2 id="decisionTitle">Decision</h2><p id="decisionText"></p><label for="decisionNote">Decision note</label><textarea id="decisionNote" placeholder="Optional explanation for the manager"></textarea><div class="actions"><button class="primary" id="confirmDecision">Confirm</button><button class="secondary" id="cancelDecision">Cancel</button></div></div></dialog>
 <script>
-  const FIELDS=['F1','F2','F3','F4','F5','F6','F7','F8'];
-  const TIMES={Monday:['4p','6p','8p'],Tuesday:['4p','6p','8p'],Wednesday:['4p','6p','8p'],Thursday:['4p','6p','8p'],Friday:['4p','6p','8p'],Saturday:['9a','11a','1p','3p','5p','7p'],Sunday:['9a','11a','1p','3p','5p','7p']};
-  const DAYS=Object.keys(TIMES);
-  const SCHEDULE_URL='data/fall-2026-schedule-template.csv';
-  const CACHE_KEY='lll-field-requests-v3';
-  const SCHEDULE_CACHE_KEY='lll-fall-2026-schedule-cache';
-  const SCHEDULE_TTL=10*60*1000;
-  let decision=null;
-  let centralSchedule=[];
-  let state=JSON.parse(localStorage.getItem(CACHE_KEY)||'null')||{requests:[{id:'demo-request',team:'10U Lightning Blue',type:'Practice',day:'Wednesday',start:'6p',field:'F1',date:'',opponent:'',lights:'No',notes:'Sample request for review.',status:'Pending',createdAt:new Date().toISOString()}]};
+  const FIELDS = ['F1','F2','F3','F4','F5','F6','F7','F8'];
+  const TIMES = {
+    Monday:['4p','6p','8p'], Tuesday:['4p','6p','8p'], Wednesday:['4p','6p','8p'],
+    Thursday:['4p','6p','8p'], Friday:['4p','6p','8p'],
+    Saturday:['9a','11a','1p','3p','5p','7p'], Sunday:['9a','11a','1p','3p','5p','7p']
+  };
+  const DAYS = Object.keys(TIMES);
+  const SCHEDULE_URL = 'data/fall-2026-schedule-template.csv';
+  const SCHEDULE_CACHE = 'lll-central-schedule-cache-v1';
+  const REQUEST_CACHE = 'lll-field-requests-v1';
+  const CACHE_MINUTES = 10;
 
-  function save(){localStorage.setItem(CACHE_KEY,JSON.stringify(state));}
-  function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
-  function parseCsvLine(line){const values=[];let value='',quotes=false;for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(quotes&&line[i+1]==='"'){value+='"';i++;}else quotes=!quotes;}else if(c===','&&!quotes){values.push(value.trim());value='';}else value+=c;}values.push(value.trim());return values;}
-  function parseCsv(text){const lines=text.trim().split(/\r?\n/).filter(Boolean);const headers=parseCsvLine(lines.shift());return lines.map((line,index)=>{const cols=parseCsvLine(line);const row=Object.fromEntries(headers.map((h,i)=>[h,cols[i]||'']));return{id:'schedule-'+index,day:row.Day,start:row.Start,field:row.Field,team:row.Team,type:row['Event Type']||'Practice',notes:row.Notes||'',status:(row.Status||'Approved')==='Blocked'?'Blocked':'Approved'};}).filter(x=>DAYS.includes(x.day)&&TIMES[x.day].includes(x.start)&&FIELDS.includes(x.field)&&x.team);}
-  function loadScheduleCache(){try{return JSON.parse(localStorage.getItem(SCHEDULE_CACHE_KEY)||'null');}catch{return null;}}
-  function saveScheduleCache(events){localStorage.setItem(SCHEDULE_CACHE_KEY,JSON.stringify({savedAt:new Date().toISOString(),events}));}
-  function statusText(message){document.getElementById('sourceText').textContent=message;}
-  async function loadCentralSchedule(force=false){const cached=loadScheduleCache();if(cached?.events?.length){centralSchedule=cached.events;statusText(`Cached schedule from ${new Date(cached.savedAt).toLocaleString()}`);renderAll();}const stale=!cached||Date.now()-new Date(cached.savedAt).getTime()>SCHEDULE_TTL;if(!force&&!stale)return;try{statusText('Refreshing central schedule…');const response=await fetch(`${SCHEDULE_URL}?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw new Error(`HTTP ${response.status}`);const events=parseCsv(await response.text());if(!events.length)throw new Error('No valid schedule entries found');centralSchedule=events;saveScheduleCache(events);statusText(`Central Fall 2026 schedule loaded · ${events.length} entries`);renderAll();}catch(error){statusText(cached?.events?.length?'Could not refresh; showing cached schedule.':'Could not load central schedule.');console.error(error);renderAll();}}
-  function occupied(day,start,field,ignoreId){return centralSchedule.some(x=>x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId)||state.requests.some(x=>x.status==='Approved'&&x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId);}
-  function currentEvents(day,start,field){return [...centralSchedule,...state.requests.filter(r=>r.status==='Approved'||r.status==='Pending')].filter(x=>x.day===day&&x.start===start&&x.field===field);}
-  function renderDashboard(){const approved=centralSchedule.filter(x=>x.status==='Approved').length+state.requests.filter(x=>x.status==='Approved').length;document.getElementById('pendingMetric').textContent=state.requests.filter(x=>x.status==='Pending').length;document.getElementById('approvedMetric').textContent=approved;const sample=centralSchedule.filter(x=>x.status==='Approved').slice(0,12);document.getElementById('upcoming').innerHTML=sample.length?`<table><thead><tr><th>Day</th><th>Time</th><th>Field</th><th>Team / event</th></tr></thead><tbody>${sample.map(x=>`<tr><td>${x.day}</td><td>${x.start}</td><td>${x.field}</td><td>${esc(x.team)} — ${esc(x.type)}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">Loading schedule data…</p>';}
+  let schedule = [];
+  let requests = loadRequests();
+  let activeDecision = null;
+
+  function loadRequests() {
+    try { return JSON.parse(localStorage.getItem(REQUEST_CACHE)) || []; }
+    catch (error) { return []; }
+  }
+
+  function saveRequests() {
+    localStorage.setItem(REQUEST_CACHE, JSON.stringify(requests));
+  }
+
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, function(character) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[character];
+    });
+  }
+
+  function parseCsvLine(line) {
+    const values = [];
+    let value = '';
+    let quoted = false;
+    for (let i = 0; i < line.length; i += 1) {
+      const character = line[i];
+      if (character === '"') {
+        if (quoted && line[i + 1] === '"') { value += '"'; i += 1; }
+        else { quoted = !quoted; }
+      } else if (character === ',' && !quoted) {
+        values.push(value.trim()); value = '';
+      } else { value += character; }
+    }
+    values.push(value.trim());
+    return values;
+  }
+
+  function parseSchedule(csvText) {
+    const lines = csvText.trim().split(/\r?\n/).filter(Boolean);
+    if (!lines.length) return [];
+    const headers = parseCsvLine(lines.shift());
+    return lines.map(function(line, index) {
+      const values = parseCsvLine(line);
+      const row = {};
+      headers.forEach(function(header, column) { row[header] = values[column] || ''; });
+      return {
+        id:'central-' + index,
+        day:row.Day,
+        start:row.Start,
+        field:row.Field,
+        team:row.Team,
+        type:row['Event Type'] || 'Practice',
+        notes:row.Notes || '',
+        status:(row.Status || 'Approved').toLowerCase() === 'blocked' ? 'Blocked' : 'Approved'
+      };
+    }).filter(function(event) {
+      return DAYS.includes(event.day) && TIMES[event.day].includes(event.start) && FIELDS.includes(event.field) && event.team;
+    });
+  }
+
+  function saveSchedule(events) {
+    localStorage.setItem(SCHEDULE_CACHE, JSON.stringify({ savedAt:new Date().toISOString(), events:events }));
+  }
+
+  function cachedSchedule() {
+    try { return JSON.parse(localStorage.getItem(SCHEDULE_CACHE)); }
+    catch (error) { return null; }
+  }
+
+  function showScheduleStatus(text) {
+    document.getElementById('scheduleStatus').textContent = text;
+  }
+
+  async function loadSchedule(force) {
+    const cached = cachedSchedule();
+    if (cached && Array.isArray(cached.events) && cached.events.length) {
+      schedule = cached.events;
+      showScheduleStatus('Cached schedule from ' + new Date(cached.savedAt).toLocaleString());
+      renderAll();
+    }
+    const stale = !cached || !cached.savedAt || Date.now() - new Date(cached.savedAt).getTime() > CACHE_MINUTES * 60000;
+    if (!force && !stale) return;
+    try {
+      showScheduleStatus('Refreshing central schedule…');
+      const response = await fetch(SCHEDULE_URL + '?v=' + Date.now(), { cache:'no-store' });
+      if (!response.ok) throw new Error('Schedule request failed');
+      const events = parseSchedule(await response.text());
+      if (!events.length) throw new Error('No valid schedule events found');
+      schedule = events;
+      saveSchedule(events);
+      showScheduleStatus('Central Fall 2026 schedule loaded · ' + events.length + ' entries');
+    } catch (error) {
+      showScheduleStatus(schedule.length ? 'Could not refresh; showing cached schedule.' : 'Could not load central schedule.');
+      console.error(error);
+    }
+    renderAll();
+  }
+
+  function allVisibleEvents(day, start, field) {
+    const approvedRequests = requests.filter(function(request) { return request.status === 'Approved' || request.status === 'Pending'; });
+    return schedule.concat(approvedRequests).filter(function(event) {
+      return event.day === day && event.start === start && event.field === field;
+    });
+  }
+
+  function isOccupied(day, start, field, ignoreId) {
+    const centralOccupied = schedule.some(function(event) {
+      return event.day === day && event.start === start && event.field === field && event.id !== ignoreId;
+    });
+    const requestOccupied = requests.some(function(request) {
+      return request.status === 'Approved' && request.day === day && request.start === start && request.field === field && request.id !== ignoreId;
+    });
+    return centralOccupied || requestOccupied;
+  }
+
+  function renderDashboard() {
+    const approvedCount = schedule.filter(function(event) { return event.status === 'Approved'; }).length + requests.filter(function(request) { return request.status === 'Approved'; }).length;
+    document.getElementById('pendingCount').textContent = requests.filter(function(request) { return request.status === 'Pending'; }).length;
+    document.getElementById('approvedCount').textContent = approvedCount;
+    const rows = schedule.filter(function(event) { return event.status === 'Approved'; }).slice(0, 12);
+    document.getElementById('allocationList').innerHTML = rows.length ? '<table><thead><tr><th>Day</th><th>Time</th><th>Field</th><th>Team / event</th></tr></thead><tbody>' + rows.map(function(event) {
+      return '<tr><td>' + event.day + '</td><td>' + event.start + '</td><td>' + event.field + '</td><td>' + escapeHtml(event.team) + ' — ' + escapeHtml(event.type) + '</td></tr>';
+    }).join('') + '</tbody></table>' : '<p class="muted">Loading schedule data…</p>';
+  }
+
   function renderGrid() {
-  let html = '<div class="week">';
-  html += '<div class="cell head">Day / time</div>';
-
-  FIELDS.forEach((field) => {
-    html += `<div class="cell head">${field}</div>`;
-  });
-
-  DAYS.forEach((day) => {
-    TIMES[day].forEach((time, index) => {
-      html += `<div class="cell ${index === 0 ? 'day' : 'time'}">`;
-
-      if (index === 0) {
-        html += `${day}<br>`;
-      }
-
-      html += `${time}</div>`;
-
-      FIELDS.forEach((field) => {
-        const events = currentEvents(day, time, field);
-
-        const isBlocked = events.some((event) => {
-          return event.status === 'Blocked' || event.type === 'Blocked';
-        });
-
-        let cellClass = 'slot';
-
-        if (!isBlocked && events.length === 0) {
-          cellClass += ' open';
-        }
-
-        html += `<div class="cell ${cellClass}">`;
-
-        events.forEach((event) => {
-          let eventClass = '';
-
-          if (event.status === 'Pending') {
-            eventClass = 'pending-event';
-          } else if (
-            event.status === 'Blocked' ||
-            event.type === 'Blocked'
-          ) {
-            eventClass = 'block';
-          } else if (event.type.includes('Game')) {
-            eventClass = 'game';
-          }
-
-          html += `<div class="event ${eventClass}">`;
-          html += `<strong>${esc(event.team)}</strong>`;
-
-          if (event.notes) {
-            html += `<br><span>${esc(event.notes)}</span>`;
-          }
-
+    let html = '<div class="week"><div class="cell head">Day / time</div>';
+    FIELDS.forEach(function(field) { html += '<div class="cell head">' + field + '</div>'; });
+    DAYS.forEach(function(day) {
+      TIMES[day].forEach(function(time, index) {
+        html += '<div class="cell ' + (index === 0 ? 'daycell' : 'timecell') + '">' + (index === 0 ? day + '<br>' : '') + time + '</div>';
+        FIELDS.forEach(function(field) {
+          const events = allVisibleEvents(day, time, field);
+          const blocked = events.some(function(event) { return event.status === 'Blocked' || event.type === 'Blocked'; });
+          let className = 'cell slot';
+          if (!blocked && !events.length) className += ' open';
+          if (blocked) className += ' blocked';
+          html += '<div class="' + className + '">';
+          events.forEach(function(event) {
+            let eventClass = '';
+            if (event.status === 'Pending') eventClass = 'pending';
+            else if (event.status === 'Blocked' || event.type === 'Blocked') eventClass = 'block';
+            else if (String(event.type).includes('Game')) eventClass = 'game';
+            html += '<div class="event ' + eventClass + '"><strong>' + escapeHtml(event.team) + '</strong>' + (event.notes ? '<br><span>' + escapeHtml(event.notes) + '</span>' : '') + '</div>';
+          });
           html += '</div>';
         });
-
-        html += '</div>';
       });
+    });
+    html += '</div>';
+    document.getElementById('grid').innerHTML = html;
+  }
+
+  function renderQueue() {
+    const order = {Pending:0, Approved:1, Denied:2};
+    const items = requests.slice().sort(function(a,b) { return order[a.status] - order[b.status]; });
+    document.getElementById('queueList').innerHTML = items.length ? items.map(function(request) {
+      const actions = request.status === 'Pending' ? '<div class="actions"><button class="approve" onclick="openDecision(\'' + request.id + '\',\'Approved\')">Approve</button><button class="deny" onclick="openDecision(\'' + request.id + '\',\'Denied\')">Deny</button><button class="secondary" onclick="showAlternates(\'' + request.id + '\')">Find alternate</button></div>' : '';
+      return '<div class="request"><div class="request-top"><div><h3>' + escapeHtml(request.team) + ' — ' + escapeHtml(request.type) + '</h3><div><strong>' + request.day + ' ' + request.start + '</strong> · ' + request.field + '</div><div class="muted">Lights: ' + escapeHtml(request.lights || 'No') + (request.opponent ? ' · Opponent: ' + escapeHtml(request.opponent) : '') + (request.notes ? ' · ' + escapeHtml(request.notes) : '') + '</div>' + (request.decisionNote ? '<div class="muted">Scheduler note: ' + escapeHtml(request.decisionNote) + '</div>' : '') + '</div><span class="badge ' + request.status.toLowerCase() + '">' + request.status + '</span></div>' + actions + '</div>';
+    }).join('') : '<p class="muted">No requests submitted yet.</p>';
+  }
+
+  function renderAll() { renderDashboard(); renderGrid(); renderQueue(); }
+
+  function setupForm() {
+    const daySelect = document.getElementById('day');
+    const fieldSelect = document.getElementById('field');
+    daySelect.innerHTML = DAYS.map(function(day) { return '<option>' + day + '</option>'; }).join('');
+    fieldSelect.innerHTML = FIELDS.map(function(field) { return '<option>' + field + '</option>'; }).join('');
+    function updateTimes() {
+      document.getElementById('start').innerHTML = TIMES[daySelect.value].map(function(time) { return '<option>' + time + '</option>'; }).join('');
+    }
+    daySelect.addEventListener('change', updateTimes);
+    updateTimes();
+  }
+
+  function requestFromForm() {
+    return {
+      id:'request-' + Date.now(), team:document.getElementById('team').value.trim(), type:document.getElementById('eventType').value,
+      day:document.getElementById('day').value, start:document.getElementById('start').value, field:document.getElementById('field').value,
+      date:document.getElementById('date').value, opponent:document.getElementById('opponent').value.trim(), lights:document.getElementById('lights').value,
+      notes:document.getElementById('notes').value.trim(), status:'Pending', createdAt:new Date().toISOString()
+    };
+  }
+
+  function checkAvailability() {
+    const request = requestFromForm();
+    const notice = document.getElementById('availability');
+    if (!request.team) { notice.textContent = 'Enter a team or requestor name first.'; notice.className = 'notice visible'; return false; }
+    notice.textContent = isOccupied(request.day, request.start, request.field) ? request.field + ' is already occupied or blocked on ' + request.day + ' at ' + request.start + '. The request can be submitted for review but cannot be approved without a change.' : request.field + ' appears open on ' + request.day + ' at ' + request.start + '. Submit it for scheduler approval.';
+    notice.className = 'notice visible';
+    return !isOccupied(request.day, request.start, request.field);
+  }
+
+  document.querySelectorAll('.tab').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelectorAll('.view').forEach(function(view) { view.classList.toggle('active', view.id === button.dataset.view); });
+      document.querySelectorAll('.tab').forEach(function(tab) { tab.classList.toggle('active', tab === button); });
+      renderAll();
     });
   });
 
-  html += '</div>';
+  document.getElementById('checkButton').addEventListener('click', checkAvailability);
+  document.getElementById('requestForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const request = requestFromForm();
+    if (!request.team) { checkAvailability(); return; }
+    requests.push(request); saveRequests(); event.target.reset(); setupForm(); renderAll();
+    document.querySelector('[data-view="queue"]').click();
+  });
 
-  document.getElementById('weekGrid').innerHTML = html;
-}
-  function renderQueue(){const requests=[...state.requests].sort((a,b)=>({Pending:0,Approved:1,Denied:2}[a.status]-({Pending:0,Approved:1,Denied:2}[b.status]));document.getElementById('requestQueue').innerHTML=requests.length?requests.map(r=>`<div class="request-card"><div style="display:flex;justify-content:space-between;gap:10px"><div><h3>${esc(r.team)} — ${esc(r.type)}</h3><div><strong>${r.day} ${r.start}</strong> · ${r.field}${r.date?' · '+esc(r.date):''}</div><div class="muted">Lights: ${esc(r.lights||'No')}${r.opponent?' · Opponent: '+esc(r.opponent):''}${r.notes?' · '+esc(r.notes):''}</div>${r.decisionNote?`<div class="muted">Scheduler note: ${esc(r.decisionNote)}</div>`:''}</div><span class="badge ${r.status.toLowerCase()}">${r.status}</span></div>${r.status==='Pending'?`<div class="actions" style="margin-top:10px"><button class="approve" onclick="openDecision('${r.id}','Approved')">Approve</button><button class="danger" onclick="openDecision('${r.id}','Denied')">Deny</button><button class="secondary" onclick="alternates('${r.id}')">Find alternate</button></div>`:''}</div>`).join(''):'<p class="muted">No pending requests.</p>';}
-  function renderAll(){renderDashboard();renderGrid();renderQueue();}
-  function populateInputs(){document.getElementById('field').innerHTML=FIELDS.map(x=>`<option>${x}</option>`).join('');const updateTimes=()=>{const day=document.getElementById('day').value;document.getElementById('start').innerHTML=TIMES[day].map(x=>`<option>${x}</option>`).join('');};document.getElementById('day').addEventListener('change',updateTimes);updateTimes();}
-  function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.view===id));renderAll();}
-  document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
-  function draft(){return{id:'request-'+Date.now(),team:document.getElementById('team').value.trim(),type:document.getElementById('type').value,day:document.getElementById('day').value,start:document.getElementById('start').value,field:document.getElementById('field').value,date:document.getElementById('date').value,opponent:document.getElementById('opponent').value.trim(),lights:document.getElementById('lights').value,notes:document.getElementById('notes').value.trim(),status:'Pending',createdAt:new Date().toISOString()};}
-  function check(){const notice=document.getElementById('conflictNotice'),request=draft();if(!request.team){notice.textContent='Enter a team or requestor name first.';notice.className='notice show';return false;}const busy=occupied(request.day,request.start,request.field);notice.textContent=busy?`${request.field} is already occupied or blocked on ${request.day} at ${request.start}. You can submit it for review, but it cannot be approved without a change.`:`${request.field} appears open on ${request.day} at ${request.start}. Submit it for scheduler approval.`;notice.className='notice show';return !busy;}
-  document.getElementById('checkAvailability').addEventListener('click',check);
-  document.getElementById('requestForm').addEventListener('submit',event=>{event.preventDefault();const request=draft();if(!request.team){check();return;}state.requests.push(request);save();event.target.reset();populateInputs();alert('Field request submitted. It is now pending scheduler approval.');showView('admin');});
-  window.openDecision=(id,status)=>{decision={id,status};const request=state.requests.find(x=>x.id===id);document.getElementById('dialogTitle').textContent=status==='Approved'?'Approve field request':'Deny field request';document.getElementById('dialogText').textContent=`${request.team}: ${request.day} ${request.start}, ${request.field}.`;document.getElementById('decisionNote').value='';document.getElementById('decisionDialog').showModal();};
-  document.getElementById('confirmDecision').addEventListener('click',()=>{const request=state.requests.find(x=>x.id===decision.id);if(decision.status==='Approved'&&occupied(request.day,request.start,request.field,request.id)){alert('Cannot approve: this field is occupied or blocked. Find an alternate field or deny with a note.');return;}request.status=decision.status;request.decisionNote=document.getElementById('decisionNote').value.trim();request.decidedAt=new Date().toISOString();save();document.getElementById('decisionDialog').close();renderAll();});
-  window.alternates=id=>{const request=state.requests.find(x=>x.id===id);const open=FIELDS.filter(field=>!occupied(request.day,request.start,field,request.id));alert(open.length?`Open fields at ${request.day} ${request.start}: ${open.join(', ')}`:'No open fields at that time. Choose a different slot.');};
-  document.getElementById('refreshSchedule').addEventListener('click',()=>loadCentralSchedule(true));
-  populateInputs();renderAll();loadCentralSchedule();
+  window.openDecision = function(id, status) {
+    activeDecision = {id:id, status:status};
+    const request = requests.find(function(item) { return item.id === id; });
+    document.getElementById('decisionTitle').textContent = status === 'Approved' ? 'Approve field request' : 'Deny field request';
+    document.getElementById('decisionText').textContent = request.team + ': ' + request.day + ' ' + request.start + ', ' + request.field + '.';
+    document.getElementById('decisionNote').value = '';
+    document.getElementById('decisionDialog').showModal();
+  };
+
+  window.showAlternates = function(id) {
+    const request = requests.find(function(item) { return item.id === id; });
+    const options = FIELDS.filter(function(field) { return !isOccupied(request.day, request.start, field, request.id); });
+    alert(options.length ? 'Open fields at ' + request.day + ' ' + request.start + ': ' + options.join(', ') : 'No open fields are available at that time.');
+  };
+
+  document.getElementById('cancelDecision').addEventListener('click', function() { document.getElementById('decisionDialog').close(); });
+  document.getElementById('confirmDecision').addEventListener('click', function() {
+    const request = requests.find(function(item) { return item.id === activeDecision.id; });
+    if (activeDecision.status === 'Approved' && isOccupied(request.day, request.start, request.field, request.id)) { alert('This slot is occupied or blocked. Select an alternate field or deny the request.'); return; }
+    request.status = activeDecision.status; request.decisionNote = document.getElementById('decisionNote').value.trim(); request.decidedAt = new Date().toISOString();
+    saveRequests(); document.getElementById('decisionDialog').close(); renderAll();
+  });
+
+  document.getElementById('refreshButton').addEventListener('click', function() { loadSchedule(true); });
+  setupForm(); renderAll(); loadSchedule(false);
 </script>
 </body>
 </html>
