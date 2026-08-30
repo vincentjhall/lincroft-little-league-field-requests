@@ -88,7 +88,7 @@
   function occupied(day,start,field,ignoreId){return centralSchedule.some(x=>x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId)||state.requests.some(x=>x.status==='Approved'&&x.day===day&&x.start===start&&x.field===field&&x.id!==ignoreId);}
   function currentEvents(day,start,field){return [...centralSchedule,...state.requests.filter(r=>r.status==='Approved'||r.status==='Pending')].filter(x=>x.day===day&&x.start===start&&x.field===field);}
   function renderDashboard(){const approved=centralSchedule.filter(x=>x.status==='Approved').length+state.requests.filter(x=>x.status==='Approved').length;document.getElementById('pendingMetric').textContent=state.requests.filter(x=>x.status==='Pending').length;document.getElementById('approvedMetric').textContent=approved;const sample=centralSchedule.filter(x=>x.status==='Approved').slice(0,12);document.getElementById('upcoming').innerHTML=sample.length?`<table><thead><tr><th>Day</th><th>Time</th><th>Field</th><th>Team / event</th></tr></thead><tbody>${sample.map(x=>`<tr><td>${x.day}</td><td>${x.start}</td><td>${x.field}</td><td>${esc(x.team)} — ${esc(x.type)}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">Loading schedule data…</p>';}
-  function function renderGrid() {
+  function renderGrid() {
   let html = '<div class="week">';
   html += '<div class="cell head">Day / time</div>';
 
